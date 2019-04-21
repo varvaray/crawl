@@ -2,8 +2,8 @@ class ResultAPI < Base
 
   helpers do
     def set_response(status, matches)
-      response = { finished: status }
-      response.merge!("matches": matches) if matches
+      response = { status: status }
+      response.merge!("matches": matches) if matches.any?
       response.to_json
     end
   end
